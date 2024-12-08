@@ -6,9 +6,6 @@ import {
 	useStylesScoped$,
 } from '@builder.io/qwik'
 
-/**
- * Configuration interface for gradient colors
- */
 interface GradientConfig {
 	bottomLeft: string
 	middleLeft: string
@@ -17,92 +14,51 @@ interface GradientConfig {
 }
 
 interface SizeConfig {
-	/** Minimum star size in pixels */
 	min: number
-	/** Maximum star size in pixels */
 	max: number
 }
 
-/**
- * Configuration interface for star movement speed
- */
 interface SpeedConfig {
-	/** Minimum movement speed */
 	min: number
-	/** Maximum movement speed */
 	max: number
 }
 
-/**
- * Configuration interface for star opacity
- */
 interface OpacityConfig {
-	/** Minimum opacity value (0-1) */
-	min: number
-	/** Maximum opacity value (0-1) */
-	max: number
+	min: 0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1
+	max: 0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1
 }
 
-/**
- * Configuration interface for star movement angle
- */
 interface AngleConfig {
-	/** Base X direction (-1 to 1) */
 	baseX: number
-	/** Base Y direction (-1 to 1) */
 	baseY: number
-	/** How much individual stars can vary from the base angle */
 	variation: number
-	/** Configuration for angle oscillation over time */
 	oscillation: {
-		/** Speed of the oscillation */
 		speed: number
-		/** Maximum angle change during oscillation */
 		magnitude: number
 	}
 }
 
-/**
- * Main configuration interface for the starry sky effect
- */
 interface StarConfig {
-	/** Number of pixels per star (higher = fewer stars) */
 	density: number
-	/** Star size configuration */
 	size: SizeConfig
-	/** Star speed configuration */
 	speed: SpeedConfig
-	/** Star opacity configuration */
 	opacity: OpacityConfig
-	/** Star movement angle configuration */
 	angle: AngleConfig
-	/** Background gradient configuration */
 	gradient: GradientConfig
-	/** Duration of the fade-in animation in milliseconds */
 	fadeInDuration: number
 }
 
-/**
- * Interface representing a single star
- */
 interface Star {
-	/** X position on the canvas */
 	x: number
-	/** Y position on the canvas */
 	y: number
-	/** Size of the star in pixels */
 	size: number
-	/** Movement speed of the star */
 	speed: number
-	/** Individual angle variation for this star */
 	angleOffset: number
 }
 
-/**
- * Default configuration for the starry sky effect
- */
 const STAR_CONFIG: StarConfig = {
-	density: 2000, // One star per this many pixels
+	/** Number of pixels per star (higher = fewer stars) */
+	density: 2000,
 	size: {
 		min: 0.3,
 		max: 0.9,
@@ -112,16 +68,20 @@ const STAR_CONFIG: StarConfig = {
 		max: 0.2,
 	},
 	opacity: {
+		/** Minimum opacity value (0-1) */
 		min: 0.6,
+		/** Maximum opacity value (0-1) */
 		max: 1,
 	},
 	angle: {
-		baseX: -1, // Base movement direction X
-		baseY: -0.5, // Base movement direction Y
-		variation: 2, // How much each star's angle can vary
+		/** Base X direction (-1 to 1) */
+		baseX: -1,
+		/** Base Y direction (-1 to 1) */
+		baseY: -0.5,
+		variation: 10,
 		oscillation: {
-			speed: 0.001, // How fast the angle changes
-			magnitude: 4, // How much the angle can change
+			speed: 0.001,
+			magnitude: 10,
 		},
 	},
 	gradient: {
@@ -130,7 +90,8 @@ const STAR_CONFIG: StarConfig = {
 		middleRight: '#342A5D',
 		topRight: '#3C233E',
 	},
-	fadeInDuration: 1000, // in milliseconds
+	/** Duration of the fade-in animation in milliseconds */
+	fadeInDuration: 1000,
 }
 
 /**
@@ -235,7 +196,7 @@ export default component$(() => {
 `)
 
 	// eslint-disable-next-line qwik/no-use-visible-task
-	useVisibleTask$(({ cleanup }) => {
+	useVisibleTask$(({ cleanup }: { cleanup: () => void }) => {
 		const canvas = canvasRef.value
 		if (!canvas) return
 
@@ -282,15 +243,15 @@ export default component$(() => {
 
 			// Update and draw stars
 			stars.value = await Promise.all(
-				stars.value.map(async star => {
-					const updatedStar = await updateStarPosition(
+				stars.value.map(async (star: Star): Promise<Star> => {
+					const updatedStar: Star = await updateStarPosition(
 						star,
 						globalAngleOffset,
 						canvas.width,
 						canvas.height,
 					)
 
-					const opacity =
+					const opacity: number =
 						Math.random() *
 							(STAR_CONFIG.opacity.max - STAR_CONFIG.opacity.min) +
 						STAR_CONFIG.opacity.min

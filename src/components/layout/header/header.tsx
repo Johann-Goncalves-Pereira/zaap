@@ -31,12 +31,12 @@ export default component$(() => {
 	useContextProvider(LanguageContext, language)
 
 	return (
-		<header class='fixed inset-0 mx-auto mt-4 mb-auto flex h-max w-max'>
+		<header class='fixed inset-0 z-20 mx-auto mt-4 mb-auto flex h-max w-max'>
 			<div
-				class='absolute inset-0 m-auto h-2 w-2 cursor-pointer rounded-full bg-slate-400 dark:bg-slate-600 hover:[&~div]:scale-100'
+				class='hover:[&~div]:ease-pop-out absolute inset-0 m-auto h-2 w-2 cursor-pointer rounded-full bg-amber-400 dark:bg-amber-600 hover:[&~div]:scale-100'
 				aria-hidden='true'
 			/>
-			<div class='ease-pop-out flex origin-center scale-0 transform-gpu items-center rounded-full border border-slate-300 px-2 text-sm transition-transform will-change-transform focus-within:scale-100 hover:scale-100 dark:border-slate-700 dark:bg-slate-900'>
+			<div class='focus-within:ease-pop-out flex origin-center scale-0 transform-gpu items-center rounded-full border border-amber-300 bg-indigo-200/50 px-2 text-sm backdrop-blur-2xl transition-transform will-change-transform focus-within:scale-100 hover:scale-100 dark:border-amber-700 dark:bg-amber-900/50'>
 				<nav class='flex items-center'>
 					<Link class='rounded-full p-2' href='/'>
 						<span class='sr-only'>Inicio</span>
@@ -47,7 +47,7 @@ export default component$(() => {
 						<LuLibraryBig font-size={16} />
 					</Link>
 				</nav>
-				<hr class='mx-2 h-4 w-px border-0 bg-slate-500' />
+				<hr class='mx-2 h-4 w-px border-0 bg-amber-500' />
 				<label for='layout__header__select--lang' class='sr-only'>
 					Language
 				</label>
