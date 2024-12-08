@@ -1,0 +1,60 @@
+{
+	"name": "qwik-boilerplate",
+	"description": "Demo app with sample routes",
+	"engines": {
+		"node": "^18.17.0 || ^20.3.0 || >=21.0.0"
+	},
+	"engines-annotation": "Mostly required by sharp which needs a Node-API v9 compatible runtime",
+	"private": true,
+	"trustedDependencies": [
+		"sharp"
+	],
+	"type": "module",
+	"scripts": {
+		"build": "qwik build",
+		"build.client": "vite build",
+		"build.preview": "vite build --ssr src/entry.preview.tsx",
+		"build.types": "tsc --incremental --noEmit",
+		"deploy": "echo 'Run \"npm run qwik add\" to install a server adapter'",
+		"dev": "vite --mode ssr",
+		"dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
+		"fmt": "prettier --write .",
+		"fmt.check": "prettier --check .",
+		"biome:start": "biome start",
+		"biome:stop": "biome stop",
+		"biome:fix": "biome check --fix .",
+		"biome:unsafe": "biome check --fix --unsafe .",
+		"lint": "eslint \"src/**/*.ts*\"",
+		"preview": "qwik build preview && vite preview --open",
+		"start": "vite --open --mode ssr",
+		"qwik": "qwik"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@builder.io/partytown": "^0.8.2",
+		"@builder.io/qwik": "^1.11.0",
+		"@builder.io/qwik-city": "^1.11.0",
+		"@qwikest/icons": "^0.0.13",
+		"@tailwindcss/vite": "4.0.0-beta.6",
+		"@total-typescript/ts-reset": "^0.6.1",
+		"@types/eslint": "9.6.1",
+		"@types/node": "22.8.6",
+		"@typescript-eslint/eslint-plugin": "8.12.2",
+		"@typescript-eslint/parser": "8.12.2",
+		"autoprefixer": "^10.4.20",
+		"eslint": "8.57.0",
+		"eslint-plugin-qwik": "^1.11.0",
+		"postcss": "^8.4.49",
+		"postcss-preset-env": "^10.1.1",
+		"prettier": "3.3.3",
+		"prettier-plugin-css-order": "^2.1.2",
+		"prettier-plugin-tailwindcss": "^0.6.9",
+		"sass": "^1.82.0",
+		"tailwindcss": "4.0.0-beta.6",
+		"typescript": "5.6.3",
+		"vite": "5.4.10",
+		"vite-plugin-biome": "^1.0.12",
+		"vite-tsconfig-paths": "^5.1.4"
+	},
+	"packageManager": "pnpm@10.0.0-beta.1"
+}
