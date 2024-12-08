@@ -20,11 +20,7 @@
 		"dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
 		"fmt": "prettier --write .",
 		"fmt.check": "prettier --check .",
-		"biome:start": "biome start",
-		"biome:stop": "biome stop",
-		"biome:fix": "biome check --fix .",
-		"biome:unsafe": "biome check --fix --unsafe .",
-		"lint": "eslint \"src/**/*.ts*\"",
+		"lint": "eslint src/**/*.ts src/**/*.ts* --no-ignore",
 		"preview": "qwik build preview && vite preview --open",
 		"start": "vite --open --mode ssr",
 		"qwik": "qwik"

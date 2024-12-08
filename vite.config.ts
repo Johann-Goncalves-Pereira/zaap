@@ -10,7 +10,6 @@ import pkg from './package.json'
 import { partytownVite } from '@builder.io/partytown/utils'
 // biome-ignore lint/style/useNodejsImportProtocol: <explanation>
 import { join } from 'path'
-import biomePlugin from 'vite-plugin-biome'
 import tailwindcss from '@tailwindcss/vite'
 
 type PkgDep = Record<string, string>
@@ -32,7 +31,6 @@ export default defineConfig((): UserConfig => {
 			tsconfigPaths(),
 			partytownVite({ dest: join(__dirname, 'dist', '~partytown') }),
 			tailwindcss(),
-			biomePlugin(),
 		],
 		// This tells Vite which dependencies to pre-build in dev mode.
 		optimizeDeps: {

@@ -1,1 +1,5 @@
 @import 'tailwindcss';
+
+@theme {
+	--ease-pop-out: cubic-bezier(0.2, 0.8, 0.72, 1.61);
+}
