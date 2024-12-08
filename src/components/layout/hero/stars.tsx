@@ -4,7 +4,6 @@ import {
 	useSignal,
 	$,
 	useStylesScoped$,
-	type useVisibleTask$Cleanup,
 } from '@builder.io/qwik'
 
 interface GradientConfig {
@@ -197,7 +196,7 @@ export default component$(() => {
 `)
 
 	// eslint-disable-next-line qwik/no-use-visible-task
-	useVisibleTask$(({ cleanup }: useVisibleTask$Cleanup) => {
+	useVisibleTask$(({ cleanup }) => {
 		const canvas = canvasRef.value
 		if (!canvas) return
 
