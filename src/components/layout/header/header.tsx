@@ -36,7 +36,7 @@ export default component$(() => {
 				class='hover:[&~div]:ease-pop-out absolute inset-0 m-auto h-2 w-2 cursor-pointer rounded-full bg-amber-400 dark:bg-amber-600 hover:[&~div]:scale-100'
 				aria-hidden='true'
 			/>
-			<div class='focus-within:ease-pop-out flex origin-center scale-0 transform-gpu items-center rounded-full border border-amber-300 bg-indigo-200/50 px-2 text-sm backdrop-blur-2xl transition-transform will-change-transform focus-within:scale-100 hover:scale-100 dark:border-amber-700 dark:bg-amber-900/50'>
+			<div class='focus-within:ease-pop-out flex origin-center scale-0 transform-gpu items-center rounded-full border border-amber-300 bg-indigo-200/50 px-2 text-sm backdrop-blur-2xl transition-transform will-change-transform focus-within:scale-100 hover:scale-100 portrait:scale-100 dark:border-amber-700 dark:bg-amber-900/50'>
 				<nav class='flex items-center'>
 					<Link class='rounded-full p-2' href='/'>
 						<span class='sr-only'>Inicio</span>
