@@ -49,9 +49,9 @@
 	font-style: italic;
 }
 
-:where(h1, h2, h3, h4, h5, h6) {
-	text-wrap: balance;
-}
+// :where(h1, h2, h3, h4, h5, h6) {
+// 	text-wrap: balance;
+// }
 
 :where(ul, ol) {
 	list-style: none;

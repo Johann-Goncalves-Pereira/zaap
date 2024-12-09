@@ -33,7 +33,7 @@ export default component$(() => {
 				{!isDev && <ServiceWorkerRegister />}
 			</head>
 			<body
-				class='bg-gray-100 text-gray-950 dark:bg-gray-950 dark:text-gray-100'
+				class='bg-gray-100 font-serif text-gray-950 dark:bg-gray-950 dark:text-gray-100'
 				lang='en'
 				data-env={import.meta.env.DEV ? 'dev' : 'prod'}
 			>

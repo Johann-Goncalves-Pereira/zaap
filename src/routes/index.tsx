@@ -6,6 +6,7 @@ export default component$(() => {
 	return (
 		<>
 			<Hero />
+			<div class='h-screen'></div>
 		</>
 	)
 })
