@@ -3,7 +3,7 @@
 @theme {
 	--ease-pop-out: cubic-bezier(0.2, 0.8, 0.72, 1.61);
 
-	/* --screen-xxxl: 1920px; */
+	--screen-xxxl: 1920px;
 
 	/* https://utopia.fyi/space/calculator?c=640,16,1.2,1920,32,1.25,5,2,&s=0.875%7C0.75,1.125%7C1.25%7C1.5%7C1.875%7C2.25%7C3%7C3.75%7C4.5%7C6%7C8,s-l&g=s,l,xl,12,l,xl,12 */
 	--text-*: initial;
@@ -24,8 +24,13 @@
 	--text-4xl: clamp(2.25rem, 1.125rem + 2.8125vw, 4.5rem);
 	--text-4xl--line-height: clamp(2.5rem, 1.25rem + 3.125vw, 5rem);
 	--text-5xl: clamp(3rem, 1.5rem + 3.75vw, 6rem);
+	--text-5xl--line-height: 1;
 	--text-6xl: clamp(3.75rem, 1.875rem + 4.6875vw, 7.5rem);
+	--text-6xl--line-height: 1;
 	--text-7xl: clamp(4.5rem, 2.25rem + 5.625vw, 9rem);
+	--text-7xl--line-height: 1;
 	--text-8xl: clamp(6rem, 3rem + 7.5vw, 12rem);
+	--text-8xl--line-height: 1;
 	--text-9xl: clamp(8rem, 4rem + 10vw, 16rem);
+	--text-9xl--line-height: 1;
 }

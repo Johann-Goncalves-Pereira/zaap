@@ -1,4 +1,4 @@
-import { component$ } from '@builder.io/qwik'
+import { component$, useStyles$ } from '@builder.io/qwik'
 import { isDev } from '@builder.io/qwik/build'
 import {
 	QwikCityProvider,
@@ -7,8 +7,7 @@ import {
 } from '@builder.io/qwik-city'
 import { RouterHead } from '@components/router-head/router-head'
 
-import '@media/styles/_tailwind.css'
-// import '@media/styles/_index.scss'
+import tailwind from '@media/styles/_tailwind.css?inline'
 import '@total-typescript/ts-reset'
 
 export default component$(() => {
@@ -18,6 +17,8 @@ export default component$(() => {
 	 *
 	 * Don't remove the `<head>` and `<body>` elements.
 	 */
+
+	useStyles$(tailwind)
 
 	return (
 		<QwikCityProvider>

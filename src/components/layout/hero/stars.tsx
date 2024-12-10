@@ -29,8 +29,50 @@ interface OpacityConfig {
 }
 
 interface AngleConfig {
-	baseX: number
-	baseY: number
+	baseX:
+		| -1
+		| -0.9
+		| -0.8
+		| -0.7
+		| -0.6
+		| -0.5
+		| -0.4
+		| -0.3
+		| -0.2
+		| -0.1
+		| 0
+		| 0.1
+		| 0.2
+		| 0.3
+		| 0.4
+		| 0.5
+		| 0.6
+		| 0.7
+		| 0.8
+		| 0.9
+		| 1
+	baseY:
+		| -1
+		| -0.9
+		| -0.8
+		| -0.7
+		| -0.6
+		| -0.5
+		| -0.4
+		| -0.3
+		| -0.2
+		| -0.1
+		| 0
+		| 0.1
+		| 0.2
+		| 0.3
+		| 0.4
+		| 0.5
+		| 0.6
+		| 0.7
+		| 0.8
+		| 0.9
+		| 1
 	variation: number
 	oscillation: {
 		speed: number
@@ -151,8 +193,12 @@ const updateStarPosition = $(
 		globalAngleOffset: number,
 		width: number,
 		height: number,
+		reduceMotion: boolean = false,
 		config: StarConfig = STAR_CONFIG,
 	): Star => {
+		if (reduceMotion) {
+			return star
+		}
 		const totalAngle = globalAngleOffset + star.angleOffset
 		const dx = config.angle.baseX + Math.cos(totalAngle) * 0.2
 		const dy = config.angle.baseY + Math.sin(totalAngle) * 0.2
@@ -197,6 +243,10 @@ export default component$(() => {
 
 	// eslint-disable-next-line qwik/no-use-visible-task
 	useVisibleTask$(({ cleanup }) => {
+		const reduceMotion = window.matchMedia(
+			`(prefers-reduced-motion: reduce)`,
+		).matches
+
 		const canvas = canvasRef.value
 		if (!canvas) return
 
@@ -249,6 +299,7 @@ export default component$(() => {
 						globalAngleOffset,
 						canvas.width,
 						canvas.height,
+						reduceMotion,
 					)
 
 					const opacity: number =
