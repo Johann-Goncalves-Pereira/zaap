@@ -7,8 +7,8 @@ import {
 } from '@builder.io/qwik-city'
 import { RouterHead } from '@components/router-head/router-head'
 
-import '@media/styles/_index.scss'
 import '@media/styles/_tailwind.css'
+// import '@media/styles/_index.scss'
 import '@total-typescript/ts-reset'
 
 export default component$(() => {

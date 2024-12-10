@@ -8,7 +8,6 @@ import { qwikCity } from '@builder.io/qwik-city/vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import pkg from './package.json'
 import { partytownVite } from '@builder.io/partytown/utils'
-// biome-ignore lint/style/useNodejsImportProtocol: <explanation>
 import { join } from 'path'
 import tailwindcss from '@tailwindcss/vite'
 
@@ -26,11 +25,11 @@ errorOnDuplicatesPkgDeps(devDependencies, dependencies)
 export default defineConfig((): UserConfig => {
 	return {
 		plugins: [
+			tailwindcss(),
 			qwikCity(),
 			qwikVite(),
 			tsconfigPaths(),
 			partytownVite({ dest: join(__dirname, 'dist', '~partytown') }),
-			tailwindcss(),
 		],
 		// This tells Vite which dependencies to pre-build in dev mode.
 		optimizeDeps: {
