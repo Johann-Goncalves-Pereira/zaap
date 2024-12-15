@@ -21,7 +21,7 @@
 			"@components/*": ["./src/components/*"],
 			"@media/*": ["./src/media/*"],
 			"@routes/*": ["./src/routes/*"],
-			"@states/*": ["./src/states/*"],
+			"@context/*": ["./src/context/*"],
 			"@utils/*": ["./src/utils/*"]
 		}
 	},

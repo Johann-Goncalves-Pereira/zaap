@@ -85,8 +85,8 @@ export default defineConfig((): UserConfig => {
 					replacement: join(__dirname, 'src', 'routes'),
 				},
 				{
-					find: '@states',
-					replacement: join(__dirname, 'src', 'states'),
+					find: '@context',
+					replacement: join(__dirname, 'src', 'context'),
 				},
 				{
 					find: '@utils',

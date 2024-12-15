@@ -6,7 +6,12 @@ import {
 	type Signal,
 } from '@builder.io/qwik'
 import { Link } from '@builder.io/qwik-city'
-import { LuHome, LuLibraryBig } from '@qwikest/icons/lucide'
+import {
+	LuHome,
+	LuKeyRound,
+	LuLibraryBig,
+	LuLogIn,
+} from '@qwikest/icons/lucide'
 
 type Languages = 'en' | 'es' | 'pt-br'
 
@@ -46,6 +51,16 @@ export default component$(() => {
 						<span class='sr-only'>Galeria</span>
 						<LuLibraryBig font-size={16} />
 					</Link>
+					<div class='flex items-center overflow-hidden transition-all hover:w-16 landscape:w-8'>
+						<Link class='rounded-full p-2' href='/log-in'>
+							<span class='sr-only'>Log In</span>
+							<LuKeyRound font-size={16} />
+						</Link>
+						<Link class='rounded-full p-2' href='/sign-in'>
+							<span class='sr-only'>Sign In</span>
+							<LuLogIn font-size={16} />
+						</Link>
+					</div>
 				</nav>
 				<hr class='mx-2 h-4 w-px border-0 bg-amber-500' />
 				<label for='layout__header__select--lang' class='sr-only'>
