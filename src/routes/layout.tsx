@@ -1,3 +1,4 @@
+import Noise from '@/components/global/noise'
 import {
 	component$,
 	Slot,
@@ -55,6 +56,7 @@ export default component$(() => {
 				<Slot />
 			</main>
 			<Footer />
+			<Noise />
 		</>
 	)
 })

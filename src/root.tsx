@@ -8,7 +8,6 @@ import {
 import { RouterHead } from '@components/router-head/router-head'
 
 import tailwind from '@media/styles/_tailwind.css?inline'
-import '@total-typescript/ts-reset'
 
 export default component$(() => {
 	/**

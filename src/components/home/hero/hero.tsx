@@ -1,20 +1,26 @@
-import { $, component$, useContextProvider, useStore } from '@builder.io/qwik'
+import {
+	$,
+	component$,
+	useContextProvider,
+	useOnWindow,
+	useStore,
+} from '@builder.io/qwik'
 import type { DocumentHead } from '@builder.io/qwik-city'
 
 import {
 	ImageContextId,
 	FileUploadButton,
 	ImagePreview,
-} from '@components/layout/hero/heroImage'
-import Stars from '@components/layout/hero/stars'
+} from '@/components/home/hero/heroImage'
+import Stars from '@/components/home/hero/stars'
 
 export default component$(() => {
 	// Use useStore instead of a plain object for reactivity
-	const imageStore = useStore({
+	const store = useStore({
 		imageData: null,
 	})
 
-	useContextProvider(ImageContextId, imageStore)
+	useContextProvider(ImageContextId, store)
 
 	const handleFileSelect$ = $((file: File) => {
 		console.log('File selected:', file.name)
@@ -22,7 +28,13 @@ export default component$(() => {
 
 	return (
 		<>
-			<article class='relative z-10 grid h-dvh place-items-center'>
+			<article
+				class='relative z-10 grid h-dvh place-items-center'
+				style={{
+					maskImage:
+						'linear-gradient(to bottom, transparent -5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 75%, transparent 100%)',
+				}}
+			>
 				<div class='mr-auto grid gap-4 pb-24 opacity-90 portrait:mx-4 landscape:ml-12'>
 					<h1 class='text-4xl'>Zaira Gonçalves Pereira</h1>
 					<h3 class='max-w-[clamp(36.25rem,33.2065rem+15.2174vw,45rem)] text-xs opacity-80'>
@@ -37,7 +49,7 @@ export default component$(() => {
 				<div class='pointer-events-none absolute inset-0 isolate -z-10'>
 					<Stars />
 					<ImagePreview />
-					<div class='absolute inset-0 z-10 shadow-[inset_0_-3rem_2rem_-2rem_var(--color-gray-100)] dark:shadow-[inset_0_-3rem_2rem_-2rem_var(--color-gray-950)]' />
+					<div class='absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-gray-100 dark:to-gray-950' />
 				</div>
 			</article>
 		</>

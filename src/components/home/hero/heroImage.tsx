@@ -1,13 +1,13 @@
-import {
-	component$,
-	useSignal,
-	$,
-	createContextId,
-	useContext,
-	type QRL,
-	noSerialize,
-} from '@builder.io/qwik'
 import type { NoSerialize } from '@builder.io/qwik'
+import {
+	$,
+	component$,
+	createContextId,
+	noSerialize,
+	useContext,
+	useSignal,
+	type QRL,
+} from '@builder.io/qwik'
 
 import DefaultBackgroundHero from '@media/imgs/hero-background.webp?jsx'
 

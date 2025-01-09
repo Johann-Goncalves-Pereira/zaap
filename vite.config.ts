@@ -92,6 +92,10 @@ export default defineConfig((): UserConfig => {
 					find: '@utils',
 					replacement: join(__dirname, 'src', 'utils'),
 				},
+				{
+					find: '@types',
+					replacement: join(__dirname, 'src', 'types', 'index.d.ts'),
+				},
 			],
 		},
 		css: {

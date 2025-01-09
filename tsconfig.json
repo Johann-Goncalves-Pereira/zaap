@@ -22,7 +22,8 @@
 			"@media/*": ["./src/media/*"],
 			"@routes/*": ["./src/routes/*"],
 			"@context/*": ["./src/context/*"],
-			"@utils/*": ["./src/utils/*"]
+			"@utils/*": ["./src/utils/*"],
+			"@types": ["./src/types/index.d.ts"]
 		}
 	},
 	"include": ["src", "./*.d.ts", "./*.config.ts"]
